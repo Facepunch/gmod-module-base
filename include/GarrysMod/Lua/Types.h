@@ -1,4 +1,3 @@
-
 #ifndef GARRYSMOD_LUA_TYPES_H
 #define GARRYSMOD_LUA_TYPES_H
 
@@ -60,6 +59,11 @@ namespace GarrysMod
 				DLIGHT,
 				VIDEO,
 				FILE,
+				
+				LOCOMOTION,
+				PATHFOLLOWER,
+				NAVMESH,
+				AUDIOCHANNEL,
 
 				COUNT
 			};
@@ -101,6 +105,10 @@ namespace GarrysMod
 				"dlight",
 				"video",
 				"file",
+				"locomotion",
+				"pathfollower",
+				"navmesh",
+				"audiochannel"
 
 				0
 			};

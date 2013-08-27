@@ -9,11 +9,23 @@ The generated dlls should be placed in
 
 garrysmod/lua/bin/
 
-They should also be named approriately.
+They should also be named appropriately:
 
-gmsv_example_win32.dll  <- require( 'example' ) serverside on windows
-gmsv_example_linux.dll  <- require( 'example' ) serverside on linux
-gmsv_example_osx.dll	<- require( 'example' ) serverside on osx
-
-gmcl_nutsack_win32.dll	<- require( 'nutsack' ) clientside on windows
-gmcl_example_osx.dll	<- require( 'example' ) clientside on osx
+<table>
+  <tr>
+    <td>gmsv_example_win32.dll</td><td>serverside on windows</td><td>require( 'example' )</td>
+  </tr>
+  <tr>
+    <td>gmsv_example_linux.dll</td><td>serverside on linux</td><td>require( 'example' )</td>
+  </tr>
+  <tr>
+    <td>gmsv_example_osx.dll</td><td>serverside on osx</td><td>require( 'example' )</td>
+  </tr>
+  <tr><td></td><td></td><td></td></tr>
+  <tr>
+    <td>gmcl_nutsack_win32.dll</td><td>clientside on windows</td><td>require( 'nutsack' )</td>
+  </tr>
+  <tr>
+    <td>gmcl_example_osx.dll</td><td>clientside on osx</td><td>require( 'example' )</td>
+  </tr>
+</table>

@@ -11,6 +11,12 @@ struct lua_State
 #elif defined( _WIN32 ) && defined( _M_X64 )
     // Win64
     unsigned char _ignore_this_common_lua_header_[92 + 22];
+#elif defined(__x86_64__)
+    //*nix x64
+    unsigned char _ignore_this_common_lua_header_[92 + 22];
+#elif defined(__i386__)
+    //*nix x32
+    unsigned char _ignore_this_common_lua_header_[48 + 22];
 #else
     #error
 #endif

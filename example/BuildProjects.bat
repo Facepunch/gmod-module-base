@@ -1,4 +1,4 @@
-premake4 --os=windows --platform=x32 --file=BuildProjects.lua vs2010
-premake4 --os=macosx --platform=universal32 --file=BuildProjects.lua gmake
-premake4 --os=linux --platform=x32 --file=BuildProjects.lua gmake
+premake5 --os=windows vs2017
+premake5 --os=macosx gmake
+premake5 --os=linux gmake
 pause

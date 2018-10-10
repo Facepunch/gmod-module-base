@@ -13,36 +13,35 @@ MsgN( TestFunction( 24.75 ) );
 
 */
 
-int MyExampleFunction( lua_State* state )
+LUA_FUNCTION( MyExampleFunction )
 {
-	if ( LUA->IsType( 1, Type::NUMBER ) )
-	{
-		char strOut[512];
-		float fNumber = LUA->GetNumber( 1 );
-		sprintf( strOut, "Thanks for the number - I love %f!!", fNumber );
-		LUA->PushString( strOut );
-		return 1;
-	}
+    if ( LUA->IsType( 1, Type::NUMBER ) )
+    {
+        char strOut[512];
+        double fNumber = LUA->GetNumber( 1 );
+        sprintf_s( strOut, "Thanks for the number - I love %f!!", fNumber );
+        LUA->PushString( strOut );
+        return 1;
+    }
 
-	LUA->PushString( "This string is returned" );
-	return 1;
+    LUA->PushString( "This string is returned" );
+    return 1;
 }
-
 
 //
 // Called when you module is opened
 //
 GMOD_MODULE_OPEN()
 {
-	//
-	// Set Global[ "TextFunction" ] = MyExampleFunction
-	//
-	LUA->PushSpecial( GarrysMod::Lua::SPECIAL_GLOB );	// Push global table
-	LUA->PushString( "TestFunction" );					// Push Name
-	LUA->PushCFunction( MyExampleFunction );			// Push function
-	LUA->SetTable( -3 );								// Set the table 
+    //
+    // Set Global[ "TextFunction" ] = MyExampleFunction
+    //
+    LUA->PushSpecial( SPECIAL_GLOB );        // Push global table
+    LUA->PushString( "TestFunction" );       // Push Name
+    LUA->PushCFunction( MyExampleFunction ); // Push function
+    LUA->SetTable( -3 );                     // Set the table 
 
-	return 0;
+    return 0;
 }
 
 //
@@ -50,5 +49,5 @@ GMOD_MODULE_OPEN()
 //
 GMOD_MODULE_CLOSE()
 {
-	return 0;
+    return 0;
 }

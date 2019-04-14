@@ -4,7 +4,6 @@
 
 #include "Types.h"
 #include "LuaBase.h"
-#include "UserData.h"
 
 
 	#ifdef GMMODULE

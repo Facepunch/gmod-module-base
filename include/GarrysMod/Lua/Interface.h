@@ -5,20 +5,12 @@
 
 struct lua_State
 {
-#if defined( _WIN32 ) && !defined( _M_X64 )
-    // Win32
-    unsigned char _ignore_this_common_lua_header_[48 + 22];
-#elif defined( _WIN32 ) && defined( _M_X64 )
-    // Win64
+#if defined( __x86_64__ ) || defined( _M_X64 )
     unsigned char _ignore_this_common_lua_header_[92 + 22];
-#elif defined(__x86_64__)
-    //*nix x64
-    unsigned char _ignore_this_common_lua_header_[92 + 22];
-#elif defined(__i386__)
-    //*nix x32
+#elif defined( __i386 ) || defined( _M_IX86 )
     unsigned char _ignore_this_common_lua_header_[48 + 22];
 #else
-    #error
+    #error Unknown architecture!
 #endif
 
     GarrysMod::Lua::ILuaBase* luabase;

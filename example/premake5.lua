@@ -21,6 +21,8 @@ project "gmsv_example"
         optimize "Speed"
         flags    "StaticRuntime"
 
+    configuration {}
+
     files
     {
         "src/**.*",

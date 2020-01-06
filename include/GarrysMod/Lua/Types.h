@@ -65,6 +65,7 @@ namespace GarrysMod
                 PARTICLESYSTEM,
                 PROJECTEDTEXTURE,
                 PHYSCOLLIDE,
+                SURFACEINFO,
 
                 COUNT
             };
@@ -116,6 +117,7 @@ namespace GarrysMod
                 "particlesystem",
                 "projectedtexture",
                 "physcollide",
+                "surfaceinfo",
 
                 0
             };

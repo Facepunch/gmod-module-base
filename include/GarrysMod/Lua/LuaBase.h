@@ -187,9 +187,14 @@ namespace GarrysMod
             // See: GetUpvalueIndex()
             virtual void        PushCClosure( CFunc val, int iVars ) = 0;
 
-            // Pushes the given pointer on to the stack as light-userdata
+
+#ifndef GMOD_ALLOW_DEPRECATED
+        protected:
+#endif
+                // Deprecated: Don't use light userdata in GMod
             virtual void        PushUserdata( void* ) = 0;
 
+        public:
             // Allows for values to be stored by reference for later use
             // Make sure you call ReferenceFree when you are done with a reference
             virtual int         ReferenceCreate() = 0;

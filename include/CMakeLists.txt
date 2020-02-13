@@ -6,7 +6,6 @@ set(SOURCES
     GarrysMod/Lua/UserData.h)
 
 add_library(gmod-module-base INTERFACE)
-target_sources(gmod-module-base INTERFACE ${SOURCES})
 target_include_directories(gmod-module-base INTERFACE ./)
 
 function(set_gmod_suffix_prefix library)

@@ -4,27 +4,32 @@
 #ifdef GMOD_USE_SOURCESDK
 #include "mathlib/vector.h"
 #else
-struct Vector
-{
-    Vector()
-        : x( 0.f )
-        , y( 0.f )
-        , z( 0.f )
-    {}
+    struct Vector
+    {
+        Vector()
+            : x( 0.f )
+            , y( 0.f )
+            , z( 0.f )
+        {}
 
-    float x, y, z;
-};
+        Vector( const Vector& src )
+            : x( src.x )
+            , y( src.y )
+            , z( src.z )
+        {}
 
-struct QAngle
-{
-    QAngle()
-        : x( 0.f )
-        , y( 0.f )
-        , z( 0.f )
-    {}
+        Vector& operator=( const Vector& src )
+        {
+            x = src.x;
+            y = src.y;
+            z = src.z;
+            return *this;
+        }
 
-    float x, y, z;
-};
+        float x, y, z;
+    };
+
+    using QAngle = Vector;
 #endif
 
 #endif

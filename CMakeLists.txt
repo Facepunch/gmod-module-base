@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.15)
+cmake_minimum_required(VERSION 3.10)
 project(gmod-module-base LANGUAGES CXX)
 
 set(CMAKE_CONFIGURATION_TYPES Release Debug)

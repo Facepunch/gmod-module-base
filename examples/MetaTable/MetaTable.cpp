@@ -41,7 +41,7 @@ LUA_FUNCTION( MyStructure_meta_add )
 
 	if ( pFloat2 == nullptr )
 	{
-		LUA->ArgError( 2, "expected My_UInt64" );
+		LUA->ArgError( 2, "expected My_Wrapped_Float" );
 		return 0;
 	}
 

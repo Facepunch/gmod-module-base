@@ -278,7 +278,7 @@ namespace GarrysMod
 
             // Creates a new UserData with your own data embedded within it
             template <class T>
-            void PushUserType_Value( const T& val, int iType )
+            void PushUserType_Value( const T& val, int iType, bool has_gc = false )
             {
                 using UserData_T = UserData_Value<T>;
 
@@ -286,10 +286,13 @@ namespace GarrysMod
                 static_assert( std::alignment_of<UserData_T>::value <= 8,
                     "PushUserType_Value given type with unsupported alignment requirement" );
 
-                // Don't give this function objects that can't be trivially destructed
-                // You could ignore this limitation if you implement object destruction in `__gc`
-                static_assert( std::is_trivially_destructible<UserData_T>::value,
-                    "PushUserType_Value given type that is not trivially destructible" );
+
+                if ( !has_gc ) {
+                    // Don't give this function objects that can't be trivially destructed
+                    // You could ignore this limitation if you implement object destruction in `__gc`
+                    static_assert(std::is_trivially_destructible<UserData_T>::value,
+                        "PushUserType_Value given type that is not trivially destructible");
+                }
 
                 auto* ud = static_cast<UserData_T*>( NewUserdata( sizeof( UserData_T ) ) );
                 ud->data = new( &ud->value ) T ( val );

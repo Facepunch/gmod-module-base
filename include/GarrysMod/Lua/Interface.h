@@ -32,21 +32,21 @@ struct lua_State
 
 #ifndef GMOD
     #ifdef _WIN32
-        #define DLL_EXPORT extern "C" __declspec( dllexport )
+        #define GMOD_DLL_EXPORT extern "C" __declspec( dllexport )
     #else
-        #define DLL_EXPORT extern "C" __attribute__((visibility("default")))
+        #define GMOD_DLL_EXPORT extern "C" __attribute__((visibility("default")))
     #endif
 
     #ifdef GMOD_ALLOW_DEPRECATED
         // Stop using this and use LUA_FUNCTION!
         #define LUA ( state->luabase )
 
-        #define GMOD_MODULE_OPEN()  DLL_EXPORT int gmod13_open( lua_State* state )
-        #define GMOD_MODULE_CLOSE() DLL_EXPORT int gmod13_close( lua_State* state )
+        #define GMOD_MODULE_OPEN()  GMOD_DLL_EXPORT int gmod13_open( lua_State* state )
+        #define GMOD_MODULE_CLOSE() GMOD_DLL_EXPORT int gmod13_close( lua_State* state )
     #else
         #define GMOD_MODULE_OPEN()                                 \
             int gmod13_open__Imp( GarrysMod::Lua::ILuaBase* LUA ); \
-            DLL_EXPORT int gmod13_open( lua_State* L )             \
+            GMOD_DLL_EXPORT int gmod13_open( lua_State* L )        \
             {                                                      \
                 return gmod13_open__Imp( L->luabase );             \
             }                                                      \
@@ -54,7 +54,7 @@ struct lua_State
 
         #define GMOD_MODULE_CLOSE()                                 \
             int gmod13_close__Imp( GarrysMod::Lua::ILuaBase* LUA ); \
-            DLL_EXPORT int gmod13_close( lua_State* L )             \
+            GMOD_DLL_EXPORT int gmod13_close( lua_State* L )        \
             {                                                       \
                 return gmod13_close__Imp( L->luabase );             \
             }                                                       \

@@ -5,6 +5,12 @@ solution "gmsv_example"
 	flags { "Symbols", "NoEditAndContinue", "NoPCH", "StaticRuntime", "EnableSSE" }
 	targetdir ( "lib/" .. os.get() .. "/" )
 	includedirs { "../include/" }
+
+	if os.get() == "macosx" then
+		platform { "universal32" }
+	else
+		platform { "x32" }
+	end 
 	
 	configurations
 	{ 

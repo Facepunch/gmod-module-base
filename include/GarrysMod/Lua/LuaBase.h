@@ -229,10 +229,6 @@ namespace GarrysMod
             virtual const char* CheckString( int iStackPos = -1 ) = 0;
             virtual double      CheckNumber( int iStackPos = -1 ) = 0;
 
-            // Like CheckString functions, but when given nil, will fallback to given default value. 
-            virtual const char*	CheckStringOpt( int iStackPos, const char* def ) = 0;
-            virtual double		CheckNumberOpt( int iStackPos, double def ) = 0;
-
             // Returns the length of the object at iStackPos
             // Works for: strings, tables, userdata
             virtual int         ObjLen( int iStackPos = -1 ) = 0;

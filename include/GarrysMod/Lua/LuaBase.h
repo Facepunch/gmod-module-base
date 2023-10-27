@@ -220,7 +220,7 @@ namespace GarrysMod
 #ifndef GMOD_ALLOW_DEPRECATED
         protected:
 #endif
-                // Deprecated: Use CreateMetaTable
+            // Deprecated: Use CreateMetaTable
             virtual void        CreateMetaTableType( const char* strName, int iType ) = 0;
 
         public:
@@ -228,6 +228,10 @@ namespace GarrysMod
             // If these functions error, any local C values will not have their destructors called!
             virtual const char* CheckString( int iStackPos = -1 ) = 0;
             virtual double      CheckNumber( int iStackPos = -1 ) = 0;
+
+            // Like CheckString functions, but when given nil, will fallback to given default value. 
+            virtual const char*	CheckStringOpt( int iStackPos, const char* def ) = 0;
+            virtual double		CheckNumberOpt( int iStackPos, double def ) = 0;
 
             // Returns the length of the object at iStackPos
             // Works for: strings, tables, userdata
